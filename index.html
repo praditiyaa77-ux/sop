@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Clone</title>
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Layout Utama */
+        .container {
+            display: flex;
+            flex: 1;
+            height: calc(100vh - 90px);
+            padding: 8px;
+            gap: 8px;
+        }
+
+        /* Sidebar Kiri */
+        .sidebar {
+            width: 320px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .bg-card {
+            background-color: #121212;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .menu-nav ul {
+            list-style: none;
+        }
+
+        .menu-nav li {
+            margin-bottom: 20px;
+        }
+
+        .menu-nav li:last-child {
+            margin-bottom: 0;
+        }
+
+        .menu-nav a {
+            color: #b3b3b3;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: color 0.2s;
+        }
+
+        .menu-nav a:hover, .menu-nav .active a {
+            color: #ffffff;
+        }
+
+        .library {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .lib-header {
+            display: flex;
+            justify-content: space-between;
+            color: #b3b3b3;
+            margin-bottom: 20px;
+        }
+
+        .playlist-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .playlist-item:hover {
+            background-color: #1a1a1a;
+        }
+
+        .playlist-img {
+            width: 48px;
+            height: 48px;
+            background-color: #282828;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Konten Utama (Kanan) */
+        .main-content {
+            flex: 1;
+            background: linear-gradient(to bottom, #222222, #121212);
+            border-radius: 8px;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-buttons button {
+            background-color: rgba(0,0,0,0.7);
+            border: none;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            margin-right: 8px;
+        }
+
+        .user-badge {
+            background-color: rgba(0,0,0,0.7);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /* Bagian Card Musik */
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .music-card {
+            background-color: #181818;
+            padding: 16px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .music-card:hover {
+            background-color: #282828;
+        }
